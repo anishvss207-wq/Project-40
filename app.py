@@ -322,7 +322,7 @@ pipeline_placeholder = st.empty()
 pipeline_placeholder.markdown(get_pipeline_html("idle"), unsafe_allow_html=True)
 
 # Sample Questions Suggestions
-st.markdown("**Suggested questions for Aditya's documents:**")
+st.markdown("**Suggested questions for documents:**")
 col1, col2, col3, col4 = st.columns(4)
 with col1:
     if st.button("💼 What skills do I currently have?", use_container_width=True):

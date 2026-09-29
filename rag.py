@@ -10,36 +10,68 @@ import numpy as np
 import faiss
 from sentence_transformers import SentenceTransformer
 
+# Document readers
 from pypdf import PdfReader
 from docx import Document
 from pptx import Presentation
 
 
-# Default knowledge base folder
+# ---------------------------------------------------------
+# DEFAULT KNOWLEDGE BASE FOLDER
+# ---------------------------------------------------------
+
 DEFAULT_DOCS_DIR = Path("files")
 
+
+# ---------------------------------------------------------
+# LOAD EMBEDDING MODEL
+# ---------------------------------------------------------
 
 def load_model(model_name: str = "all-MiniLM-L6-v2") -> SentenceTransformer:
     """
     Load and return the SentenceTransformer embedding model.
+    Uses the locally cached model when available.
     """
+
     try:
-        return SentenceTransformer(model_name, local_files_only=True)
+        return SentenceTransformer(
+            model_name,
+            local_files_only=True
+        )
+
     except Exception:
         return SentenceTransformer(model_name)
 
 
-def chunk_text(text: str, chunk_size: int = 200, overlap: int = 40) -> list:
+# ---------------------------------------------------------
+# TEXT CHUNKING
+# ---------------------------------------------------------
+
+def chunk_text(
+    text: str,
+    chunk_size: int = 200,
+    overlap: int = 40
+) -> list:
     """
     Split text into overlapping chunks based on words.
     """
+
     words = text.split()
+
     chunks = []
+
     start = 0
 
     while start < len(words):
-        end = min(start + chunk_size, len(words))
-        chunks.append(" ".join(words[start:end]))
+
+        end = min(
+            start + chunk_size,
+            len(words)
+        )
+
+        chunks.append(
+            " ".join(words[start:end])
+        )
 
         if end == len(words):
             break
@@ -49,96 +81,133 @@ def chunk_text(text: str, chunk_size: int = 200, overlap: int = 40) -> list:
     return chunks
 
 
+# ---------------------------------------------------------
+# TEXT EXTRACTION
+# ---------------------------------------------------------
+
+def extract_txt(path: Path) -> str:
+    """
+    Extract text from TXT file.
+    """
+
+    return path.read_text(
+        encoding="utf-8"
+    )
+
+
+def extract_pdf(path: Path) -> str:
+    """
+    Extract text from PDF file.
+    """
+
+    text = []
+
+    reader = PdfReader(str(path))
+
+    for page in reader.pages:
+
+        page_text = page.extract_text()
+
+        if page_text:
+            text.append(page_text)
+
+    return "\n".join(text)
+
+
+def extract_docx(path: Path) -> str:
+    """
+    Extract text from DOCX file.
+    """
+
+    document = Document(str(path))
+
+    text = []
+
+    for paragraph in document.paragraphs:
+
+        if paragraph.text.strip():
+            text.append(paragraph.text)
+
+    return "\n".join(text)
+
+
+def extract_pptx(path: Path) -> str:
+    """
+    Extract text from PPTX file.
+    """
+
+    presentation = Presentation(str(path))
+
+    text = []
+
+    for slide in presentation.slides:
+
+        for shape in slide.shapes:
+
+            if hasattr(shape, "text"):
+
+                if shape.text.strip():
+                    text.append(shape.text)
+
+    return "\n".join(text)
+
+
+# ---------------------------------------------------------
+# UNIVERSAL DOCUMENT TEXT EXTRACTION
+# ---------------------------------------------------------
+
 def extract_text(path: Path) -> str:
     """
-    Extract text from TXT, PDF, DOCX and PPTX files.
+    Extract text based on the document extension.
+    Supports TXT, PDF, DOCX and PPTX.
     """
 
     extension = path.suffix.lower()
 
-    # -------------------------
-    # TXT
-    # -------------------------
     if extension == ".txt":
-        return path.read_text(encoding="utf-8")
 
-    # -------------------------
-    # PDF
-    # -------------------------
+        return extract_txt(path)
+
     elif extension == ".pdf":
-        text_parts = []
 
-        reader = PdfReader(str(path))
+        return extract_pdf(path)
 
-        for page in reader.pages:
-            page_text = page.extract_text()
-
-            if page_text:
-                text_parts.append(page_text)
-
-        return "\n".join(text_parts)
-
-    # -------------------------
-    # DOCX
-    # -------------------------
     elif extension == ".docx":
-        document = Document(str(path))
 
-        paragraphs = []
+        return extract_docx(path)
 
-        for paragraph in document.paragraphs:
-            if paragraph.text.strip():
-                paragraphs.append(paragraph.text)
-
-        return "\n".join(paragraphs)
-
-    # -------------------------
-    # PPTX
-    # -------------------------
     elif extension == ".pptx":
-        presentation = Presentation(str(path))
 
-        slides_text = []
+        return extract_pptx(path)
 
-        for slide in presentation.slides:
-
-            slide_parts = []
-
-            for shape in slide.shapes:
-
-                if hasattr(shape, "text"):
-                    text = shape.text.strip()
-
-                    if text:
-                        slide_parts.append(text)
-
-            if slide_parts:
-                slides_text.append("\n".join(slide_parts))
-
-        return "\n".join(slides_text)
-
-    # -------------------------
-    # Unsupported
-    # -------------------------
     else:
+
         return ""
 
 
-def load_documents(docs_dir: Path = DEFAULT_DOCS_DIR) -> tuple:
+# ---------------------------------------------------------
+# LOAD DOCUMENTS
+# ---------------------------------------------------------
+
+def load_documents(
+    docs_dir: Path = DEFAULT_DOCS_DIR
+) -> tuple:
     """
-    Dynamically scan the knowledge base folder and load:
+    Scan the knowledge base folder and load:
 
-    .txt
-    .pdf
-    .docx
-    .pptx
+        TXT
+        PDF
+        DOCX
+        PPTX
 
-    Documents are converted to text and then chunked.
+    Extract text, split it into chunks,
+    and preserve document source and chunk IDs.
     """
 
     docs_dir = Path(docs_dir)
 
     if not docs_dir.exists():
+
         return [], {
             "doc_count": 0,
             "chunk_count": 0,
@@ -146,6 +215,7 @@ def load_documents(docs_dir: Path = DEFAULT_DOCS_DIR) -> tuple:
         }
 
     chunks = []
+
     files_processed = []
 
     supported_extensions = {
@@ -155,6 +225,7 @@ def load_documents(docs_dir: Path = DEFAULT_DOCS_DIR) -> tuple:
         ".pptx"
     }
 
+    # Scan all supported document types
     for path in sorted(docs_dir.iterdir()):
 
         if not path.is_file():
@@ -164,9 +235,15 @@ def load_documents(docs_dir: Path = DEFAULT_DOCS_DIR) -> tuple:
             continue
 
         try:
+
             text = extract_text(path)
 
-        except Exception:
+        except Exception as e:
+
+            print(
+                f"Could not read {path.name}: {e}"
+            )
+
             continue
 
         trimmed = text.strip()
@@ -174,39 +251,63 @@ def load_documents(docs_dir: Path = DEFAULT_DOCS_DIR) -> tuple:
         if not trimmed:
             continue
 
-        files_processed.append(path.name)
+        files_processed.append(
+            path.name
+        )
 
-        text_chunks = chunk_text(trimmed)
+        text_chunks = chunk_text(
+            trimmed
+        )
 
         for i, chunk in enumerate(text_chunks):
 
             chunks.append({
+
                 "source": path.name,
+
                 "chunk_id": i + 1,
+
                 "text": chunk
+
             })
 
     stats = {
+
         "doc_count": len(files_processed),
+
         "chunk_count": len(chunks),
+
         "files": files_processed
+
     }
 
     return chunks, stats
 
+
+# ---------------------------------------------------------
+# BUILD FAISS VECTOR INDEX
+# ---------------------------------------------------------
 
 def build_vector_index(
     chunks: list,
     model: SentenceTransformer
 ) -> tuple:
     """
-    Generate normalized embeddings and store them in FAISS.
+    Generate normalized embeddings and store them
+    in a FAISS IndexFlatIP.
+
+    Inner Product on normalized embeddings
+    behaves like Cosine Similarity.
     """
 
     if not chunks:
+
         return None, 0
 
-    texts = [c["text"] for c in chunks]
+    texts = [
+        c["text"]
+        for c in chunks
+    ]
 
     embeddings = model.encode(
         texts,
@@ -215,12 +316,20 @@ def build_vector_index(
 
     dim = embeddings.shape[1]
 
-    index = faiss.IndexFlatIP(dim)
+    index = faiss.IndexFlatIP(
+        dim
+    )
 
-    index.add(embeddings)
+    index.add(
+        embeddings
+    )
 
     return index, dim
 
+
+# ---------------------------------------------------------
+# RETRIEVE RELEVANT CHUNKS
+# ---------------------------------------------------------
 
 def retrieve_chunks(
     query: str,
@@ -230,10 +339,15 @@ def retrieve_chunks(
     top_k: int = 5
 ) -> list:
     """
-    Perform vector similarity search.
+    Perform vector similarity search using FAISS.
     """
 
-    if not query or index is None or not chunks:
+    if (
+        not query
+        or index is None
+        or not chunks
+    ):
+
         return []
 
     query_vector = model.encode(
@@ -241,7 +355,10 @@ def retrieve_chunks(
         normalize_embeddings=True
     ).astype("float32")
 
-    k = min(top_k, len(chunks))
+    k = min(
+        top_k,
+        len(chunks)
+    )
 
     scores, ids = index.search(
         query_vector,
@@ -250,7 +367,10 @@ def retrieve_chunks(
 
     results = []
 
-    for score, idx in zip(scores[0], ids[0]):
+    for score, idx in zip(
+        scores[0],
+        ids[0]
+    ):
 
         if idx < 0 or idx >= len(chunks):
             continue
@@ -258,10 +378,18 @@ def retrieve_chunks(
         item = chunks[idx]
 
         results.append({
-            "score": round(float(score), 4),
+
+            "score": round(
+                float(score),
+                4
+            ),
+
             "source": item["source"],
+
             "chunk_id": item["chunk_id"],
+
             "text": item["text"]
+
         })
 
     return results
