@@ -1,0 +1,212 @@
+AI AND ML TECHNICAL REFERENCE
+
+Reference document kept by Aditya Varma (B.Tech AI and ML, CAIT, Year 3, Semester 5) for study and project work, including the Personal Document RAG Assistant. Updated September 2026.
+
+Each topic lists: Definition, How it works, Example, Advantages, Limitations, When to use, Related concepts.
+
+1. SUPERVISED LEARNING
+Definition: Learning a mapping from inputs to known labels.
+How it works: The model predicts, compares with the true label using a loss, and updates parameters.
+Example: Predicting spam from labelled emails.
+Advantages: Clear evaluation, strong accuracy with good labels.
+Limitations: Needs labelled data, which is costly.
+When to use: When labelled examples exist.
+Related: Regression, classification, overfitting.
+
+2. UNSUPERVISED LEARNING
+Definition: Finding structure in unlabelled data.
+How it works: Algorithms group or compress data, for example K-Means assigns points to nearest centroids and updates the centroids repeatedly.
+Example: Grouping customers by behaviour.
+Advantages: No labels needed.
+Limitations: Hard to evaluate, results may be unclear.
+When to use: Exploration, segmentation, dimensionality reduction.
+Related: Clustering, PCA, embeddings.
+
+3. REGRESSION
+Definition: Predicting a continuous number.
+How it works: Fits a function that minimizes error such as Mean Squared Error.
+Example: Predicting house price from area.
+Advantages: Simple and interpretable.
+Limitations: Sensitive to outliers and wrong assumptions.
+When to use: Numeric targets.
+Related: Linear regression, RMSE, regularization.
+
+4. CLASSIFICATION
+Definition: Predicting a category.
+How it works: Learns decision boundaries or class probabilities.
+Example: Land-use type in Satellite Image Analysis.
+Advantages: Wide applicability, many algorithms.
+Limitations: Class imbalance hurts accuracy.
+When to use: Discrete labels.
+Related: Precision, recall, F1, confusion matrix.
+
+5. LINEAR REGRESSION
+Definition: Regression with y = w*x + b.
+How it works: Finds weights minimizing squared error using the normal equation or gradient descent.
+Example: Salary from years of experience.
+Advantages: Fast, interpretable.
+Limitations: Assumes linearity, sensitive to outliers.
+When to use: As a baseline for numeric prediction.
+Related: Ridge, Lasso, gradient descent.
+
+6. LOGISTIC REGRESSION
+Definition: A classifier that outputs probabilities using the sigmoid function.
+How it works: Computes a weighted sum, applies sigmoid, and trains with log loss.
+Example: Predicting match win or loss in the IPL project baseline.
+Advantages: Simple, gives probabilities.
+Limitations: Linear boundary only.
+When to use: Baseline binary classification.
+Related: Sigmoid, softmax, cross-entropy.
+
+7. KNN
+Definition: Classifies a point by the majority label of its k nearest neighbours.
+How it works: Computes distances (usually Euclidean) to all training points.
+Example: Classifying a flower by its 5 closest samples.
+Advantages: No training step, intuitive.
+Limitations: Slow on large data, needs feature scaling.
+When to use: Small datasets.
+Related: Distance metrics, curse of dimensionality, vector search.
+
+8. DECISION TREES
+Definition: A tree of yes/no questions leading to a prediction.
+How it works: Splits data at each node to reduce Gini impurity or entropy.
+Example: Crop recommendation from rainfall and pH.
+Advantages: Interpretable, handles mixed data.
+Limitations: Overfits easily.
+When to use: When explanation matters.
+Related: Random Forest, pruning, information gain.
+
+9. RANDOM FOREST
+Definition: An ensemble of many decision trees.
+How it works: Each tree trains on a random sample of data and features, and predictions are averaged or voted.
+Example: Crop recommendation and IPL prediction models.
+Advantages: Robust, strong on tabular data.
+Limitations: Less interpretable, larger models.
+When to use: Tabular data baseline.
+Related: Bagging, XGBoost, feature importance.
+
+10. SVM
+Definition: A classifier that finds the boundary with the maximum margin.
+How it works: Chooses support vectors and uses kernels for non-linear boundaries.
+Example: Text classification with TF-IDF features.
+Advantages: Effective in high dimensions.
+Limitations: Slow on large data, kernel choice needed.
+When to use: Small to medium datasets.
+Related: Kernel trick, margin, regularization C.
+
+11. NEURAL NETWORKS
+Definition: Layers of connected neurons that learn nonlinear functions.
+How it works: Forward pass computes outputs, backpropagation computes gradients, optimizer updates weights.
+Example: Digit recognition.
+Advantages: Learns complex patterns.
+Limitations: Needs data and compute, hard to interpret.
+When to use: Complex patterns such as images and text.
+Related: Activation functions, Adam, dropout.
+
+12. DEEP LEARNING
+Definition: Neural networks with many layers.
+How it works: Learns features automatically at multiple levels, such as edges then shapes then objects in CNNs.
+Example: ResNet50 in Satellite Image Analysis.
+Advantages: State of the art for images, text, and audio.
+Limitations: Data hungry and expensive.
+When to use: Unstructured data.
+Related: CNN, RNN, transfer learning.
+
+13. NLP
+Definition: Machine processing of human language.
+How it works: Text is tokenized, converted to numbers, and processed by models.
+Example: Sentiment analysis.
+Advantages: Automates language tasks.
+Limitations: Ambiguity, sarcasm, and language variety.
+When to use: Any text task.
+Related: TF-IDF, transformers, tokenization.
+
+14. TRANSFORMERS
+Definition: Architecture based on self-attention.
+How it works: Each token attends to all others using Query, Key, and Value vectors.
+Example: BERT and GPT models.
+Advantages: Parallel training, long-range context.
+Limitations: Cost grows with the square of sequence length.
+When to use: Modern NLP and multimodal tasks.
+Related: Attention, positional encoding, LLMs.
+
+15. LLMS
+Definition: Large transformers trained to predict the next token.
+How it works: Pre-training on huge text, then instruction tuning, then generation token by token.
+Example: A local Llama model run through Ollama.
+Advantages: General ability, flexible prompting.
+Limitations: Hallucination, limited context window, no private knowledge.
+When to use: Text generation, summarization, question answering with context.
+Related: Prompting, RAG, fine-tuning.
+
+16. TOKENIZATION
+Definition: Splitting text into tokens.
+How it works: Subword methods like BPE merge frequent character pairs.
+Example: "unhappiness" becomes "un", "happi", "ness".
+Advantages: Handles rare words.
+Limitations: Token counts vary by language and affect cost.
+When to use: Always before feeding text to a model.
+Related: Vocabulary, context window.
+
+17. EMBEDDINGS
+Definition: Dense vectors representing meaning.
+How it works: A model maps text to a vector, so similar meanings are close, measured by cosine similarity.
+Example: all-MiniLM-L6-v2 gives 384 numbers per chunk.
+Advantages: Captures meaning, not just keywords.
+Limitations: Model dependent, may miss exact terms.
+When to use: Semantic search and clustering.
+Related: Vector databases, cosine similarity.
+
+18. VECTOR DATABASES
+Definition: Stores embeddings for fast nearest neighbour search.
+How it works: Uses indexes such as HNSW to find close vectors approximately.
+Example: ChromaDB stores chunks and metadata.
+Advantages: Fast search, metadata filtering.
+Limitations: Approximate results, extra infrastructure.
+When to use: Retrieval over many chunks.
+Related: FAISS, semantic search, RAG.
+
+19. SEMANTIC SEARCH
+Definition: Search by meaning.
+How it works: Embed the query, compare with chunk vectors, return top results.
+Example: "my main project" finds the RAG assistant description.
+Advantages: Handles paraphrases.
+Limitations: Can miss exact names or numbers.
+When to use: Natural language questions.
+Related: Hybrid search, re-ranking.
+
+20. RAG
+Definition: Retrieval-Augmented Generation.
+How it works: Load, extract, chunk, embed, store, retrieve top chunks, then prompt the LLM with them.
+Example: The Personal Document RAG Assistant.
+Advantages: Grounded answers, no retraining, updatable knowledge.
+Limitations: Depends on retrieval quality and chunking.
+When to use: Question answering over private documents.
+Related: Chunking, embeddings, agents.
+
+21. PROMPT ENGINEERING
+Definition: Designing inputs to get good LLM output.
+How it works: Uses clear instructions, roles, examples, and format rules.
+Example: "Answer only from the context. If missing, say you do not know."
+Advantages: Cheap and fast.
+Limitations: Fragile, needs testing.
+When to use: Before considering fine-tuning.
+Related: Few-shot prompting, system prompts.
+
+22. AI AGENTS
+Definition: LLM systems that plan and act toward a goal.
+How it works: A loop of reasoning, tool use, and observation.
+Example: The Retrieval Agent chooses search queries.
+Advantages: Handles multi-step tasks.
+Limitations: Unpredictable, harder to debug.
+When to use: Tasks needing tools or decisions.
+Related: Tool calling, memory, planning.
+
+23. MULTI-AGENT SYSTEMS
+Definition: Several specialized agents cooperating.
+How it works: An orchestrator passes messages between agents with narrow roles.
+Example: Query Agent, Retrieval Agent, and Document Analysis Agent.
+Advantages: Modular, easier to improve each part.
+Limitations: More cost, coordination errors.
+When to use: Complex workflows that split into roles.
+Related: Orchestration, shared state.

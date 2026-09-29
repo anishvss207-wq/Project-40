@@ -1,0 +1,143 @@
+PERSONAL PROFILE - ADITYA VARMA
+
+Document last updated: September 28, 2026
+
+SECTION 1: BASIC INFORMATION
+
+- Full name: Aditya Varma Penmetsa (goes by Aditya Varma)
+- Age: 20 years (born March 2006)
+- Location: Andhra Pradesh, India
+- Degree: B.Tech in Artificial Intelligence and Machine Learning
+- College: Coastal Andhra Institute of Technology (CAIT), affiliated to a state technological university
+- Current year and semester: Third year (Year 3), Semester 5, academic year 2026-27
+- Batch: 2024 to 2028 (expected graduation in May 2028)
+- Current CGPA: 8.4 out of 10 after four semesters
+- Email: aditya.varma.dev@example.com
+- GitHub username: aditya-varma-ai
+
+SECTION 2: ACADEMIC BACKGROUND
+
+Aditya completed his 10th standard with 94 percent and his Intermediate (MPC stream) with 96.2 percent. He joined the B.Tech AI and ML program in 2024 through the state engineering entrance exam. His first two years covered Mathematics (linear algebra, probability, statistics, calculus), C programming, Python, Java, Data Structures, Digital Logic, and Computer Organization. In semesters 3 and 4 he studied Object Oriented Programming with Java, Database Management basics, Design of Algorithms, Probability for ML, and an introductory Machine Learning course. The Semester 5 subjects are Deep Learning, Natural Language Processing, Database Management Systems, Operating Systems, and Design and Analysis of Algorithms. His favourite subjects so far are Machine Learning and Data Structures.
+
+SECTION 3: PROGRAMMING LANGUAGES AND SKILL LEVELS
+
+Self-rated skill levels out of 10:
+
+- Python: 8 out of 10 (strongest language, used daily)
+- Java: 6 out of 10
+- C: 6 out of 10
+- SQL: 6.5 out of 10
+- Data Structures and Algorithms: 6 out of 10
+- Machine Learning: 7 out of 10
+- Deep Learning: 6 out of 10
+- Generative AI: 5.5 out of 10
+- RAG: 5 out of 10 (learning by building his current project)
+- AI agents: 4 out of 10
+
+Python knowledge: Aditya is comfortable with functions, classes, decorators, generators, list and dictionary comprehensions, file handling, exception handling, virtual environments, and type hints. He uses NumPy, Pandas, Matplotlib, and Seaborn for data work, and writes small modules and scripts for his projects. He is still improving at writing unit tests with pytest and at structuring larger applications.
+
+Java knowledge: He understands OOP concepts (classes, inheritance, polymorphism, interfaces, abstraction), collections, exception handling, and basic multithreading. He used Java for college lab work and for practicing DSA problems. He has not built a large Java application yet.
+
+C knowledge: He understands pointers, arrays, structures, dynamic memory allocation, and file handling. C helped him understand memory and how programs run at a lower level.
+
+SQL knowledge: He can write SELECT queries, joins, GROUP BY, HAVING, subqueries, and basic indexing on MySQL and SQLite. He is still learning window functions, query optimization, and database normalization in depth.
+
+Data Structures and Algorithms knowledge: He is comfortable with arrays, strings, linked lists, stacks, queues, hash maps, and binary trees. He is still learning graphs, dynamic programming, heaps, and tries. He has solved about 210 problems on LeetCode (95 easy, 100 medium, 15 hard).
+
+Machine Learning knowledge: He understands supervised and unsupervised learning, regression, classification, train-test split, cross-validation, overfitting, regularization, feature engineering, and evaluation metrics. He has used linear regression, logistic regression, KNN, decision trees, Random Forest, SVM, XGBoost, and K-Means with scikit-learn.
+
+Deep Learning knowledge: He understands neural networks, backpropagation, activation functions, CNNs, transfer learning, and the basics of RNNs and LSTMs. He has trained CNNs in TensorFlow and Keras and is learning PyTorch.
+
+Generative AI knowledge: He understands transformers, attention, LLMs, prompt engineering, tokenization, and the difference between pre-training, fine-tuning, and in-context learning. He has used Hugging Face models and hosted LLM APIs.
+
+RAG knowledge: He understands the full RAG pipeline: document loading, text extraction, chunking, embeddings, vector storage, similarity search, retrieval, and LLM answer generation. He is applying it in his current project, the Personal Document RAG Assistant.
+
+AI agent knowledge: He understands the idea of agents that plan, use tools, and collaborate. He is currently learning multi-agent design by building a three-agent system (Query Agent, Retrieval Agent, Document Analysis Agent).
+
+SECTION 4: TOOLS AND FRAMEWORKS
+
+- Core: Python 3.11, Jupyter Notebook, Google Colab, VS Code
+- Data and ML: NumPy, Pandas, Matplotlib, Seaborn, scikit-learn, XGBoost
+- Deep learning: TensorFlow, Keras, PyTorch (beginner level), OpenCV
+- NLP and GenAI: Hugging Face Transformers, Sentence-Transformers (all-MiniLM-L6-v2), LangChain (learning), Ollama for local models
+- Vector storage: ChromaDB and FAISS
+- Web and apps: Streamlit, Flask
+- Databases: MySQL, SQLite
+
+Git and GitHub experience: Aditya uses Git daily. He knows commits, branches, merging, pull requests, resolving simple merge conflicts, and writing README files. He has about 14 public repositories, including one for each of his five main projects. He wants to improve his commit discipline and use GitHub Issues and Projects to track work.
+
+SECTION 5: PROJECTS
+
+- Satellite Image Analysis (land-use classification with CNNs)
+- AI Code Error Detection (detects, explains, and suggests fixes for programming errors)
+- IPL Prediction System (match winner prediction)
+- Smart Farming System (crop recommendation and plant disease detection)
+- Personal Document RAG Assistant (CURRENT main project, in progress)
+
+Full details are in projects.txt.
+
+SECTION 6: CERTIFICATIONS
+
+- Machine Learning Specialization by Andrew Ng on Coursera (completed January 2026)
+- NPTEL Python for Data Science, Elite grade (April 2025)
+- DeepLearning.AI short course "LangChain: Chat with Your Data" (completed August 2026)
+
+SECTION 7: ACHIEVEMENTS
+
+- Second place at the CAIT hackathon InnoHack 2025 with the Smart Farming System
+- CGPA of 8.4 after four semesters
+- Solved about 210 LeetCode problems
+- Vice-lead of the college AI and Data Science Club, where he conducts beginner workshops on Python and scikit-learn
+- Presented the Satellite Image Analysis project at a departmental project expo in April 2026
+
+SECTION 8: CAREER INTERESTS AND GOALS
+
+Aditya wants to become an AI/ML engineer. He is interested in software engineering, machine learning, generative AI, RAG, and AI agents.
+
+Target job roles:
+- AI/ML Engineer (primary target)
+- Machine Learning Engineer
+- Generative AI Engineer
+- Software Engineer with an AI focus (backup)
+
+Short-term goals (next 3 to 6 months):
+- Finish the Personal Document RAG Assistant by November 30, 2026
+- Raise his LeetCode count to 400 by December 31, 2026
+- Prepare a strong resume by December 5, 2026
+- Prepare for summer 2027 internship applications, which open in January 2027
+- Maintain an SGPA of at least 8.7 in Semester 5
+
+Long-term goals:
+- Get an AI/ML engineering internship in summer 2027
+- Graduate in 2028 with a CGPA of at least 8.6
+- Join a product company as an AI/ML engineer after graduation
+- Eventually build production-grade RAG and agent systems and grow into a senior AI engineer role
+
+SECTION 9: STRENGTHS
+
+- Strong Python skills and fast learning of new libraries
+- Good understanding of core ML concepts and evaluation
+- Enjoys building complete end-to-end projects instead of only notebooks
+- Consistent study habits and good communication from club workshops
+- Curious about how systems work internally
+
+SECTION 10: AREAS FOR IMPROVEMENT
+
+- Dynamic programming and graph problems in DSA
+- Advanced SQL (window functions, optimization)
+- PyTorch fluency
+- Writing tests and documentation
+- Deploying models and applications (Docker, cloud basics)
+- Time management during exam weeks
+- Starting projects with a clear evaluation plan
+
+SECTION 11: CURRENT LEARNING PRIORITIES (SEPTEMBER TO DECEMBER 2026)
+
+1. Finish the RAG pipeline: chunking, embeddings, vector retrieval
+2. Learn multi-agent design and build the Retrieval Agent, Query Agent, and Document Analysis Agent
+3. Improve DSA, especially graphs and dynamic programming
+4. Learn SQL window functions
+5. Become comfortable with PyTorch and LangChain
+6. Prepare the resume and GitHub profile for internship applications
+
+Aditya's guiding philosophy: learn a concept, build something with it, then write notes about it. His study notes are in study_notes.txt, his plan is in career_roadmap.txt, and his task list is in goals_and_tasks.txt.

@@ -1,0 +1,136 @@
+STUDY NOTES - ADITYA VARMA
+
+Personal notes, written in my own words. Updated September 2026 (Year 3, Semester 5).
+Understanding levels are self-rated out of 10.
+
+TOPIC 1: PYTHON
+
+Important concepts: lists, dicts, sets, tuples, comprehensions, functions, classes, decorators, generators, exceptions, file handling, virtual environments.
+Definition: A generator produces values lazily using yield instead of building a full list.
+Example: squares = [x*x for x in range(5)] gives [0, 1, 4, 9, 16].
+Common mistakes: mutable default arguments (def f(a=[])), modifying a list while looping over it, forgetting that = copies references not objects.
+Remember: use with open(...) so files close automatically. Use pathlib for paths.
+Understanding level: 8/10. Learn next: pytest, packaging, async basics.
+
+TOPIC 2: DATA STRUCTURES AND ALGORITHMS
+
+Important concepts: arrays, linked lists, stacks, queues, hash maps, trees, heaps, graphs, sorting, binary search, recursion, dynamic programming.
+Complexity: binary search is O(log n), merge sort is O(n log n), hash lookup averages O(1).
+Simple example: two-sum using a hash map runs in O(n) instead of O(n squared).
+Algorithms: BFS uses a queue, DFS uses a stack or recursion, Dijkstra uses a priority queue.
+Common mistakes: off-by-one in binary search, ignoring edge cases (empty input), not marking visited nodes in graphs.
+Remember: state the pattern first (sliding window, two pointers, hash map, DP) before coding.
+Understanding level: 6/10. Learn next: graphs, dynamic programming, heaps, tries. Goal is 400 LeetCode problems by December 31, 2026.
+
+TOPIC 3: SQL
+
+Important concepts: SELECT, WHERE, JOIN (inner, left), GROUP BY, HAVING, subqueries, indexes, normalization.
+Definition: A JOIN combines rows from two tables using a matching column.
+Example: SELECT dept, AVG(salary) FROM emp GROUP BY dept HAVING AVG(salary) > 50000;
+Common mistakes: using WHERE instead of HAVING on aggregates, forgetting join conditions (creates a cross product), confusing NULL checks (use IS NULL).
+Remember: WHERE filters rows before grouping, HAVING filters groups after.
+Understanding level: 6.5/10. Learn next: window functions (ROW_NUMBER, RANK), CTEs, query optimization.
+
+TOPIC 4: MACHINE LEARNING
+
+Important concepts: supervised vs unsupervised learning, regression vs classification, train-test split, cross-validation, overfitting and underfitting, bias and variance, regularization, feature scaling.
+Formulas:
+- Linear regression: y = w*x + b, loss is Mean Squared Error = (1/n) * sum of (y - y_pred) squared
+- Gradient descent: w = w - learning_rate * gradient
+- Sigmoid: 1 / (1 + e^(-z))
+- Precision = TP / (TP + FP), Recall = TP / (TP + FN), F1 = 2*P*R / (P + R)
+Example: predicting house price is regression, spam detection is classification.
+Common mistakes: data leakage (scaling before splitting), using accuracy on imbalanced data, not checking baselines.
+Remember: always compare against a simple baseline first. The IPL project taught me to split data by time.
+Understanding level: 7/10. Learn next: feature selection, hyperparameter tuning, XGBoost internals, model calibration.
+
+TOPIC 5: DEEP LEARNING
+
+Important concepts: neurons, layers, activation functions (ReLU, sigmoid, softmax), backpropagation, loss functions, optimizers (SGD, Adam), CNNs, dropout, batch normalization, transfer learning.
+Definition: Backpropagation computes gradients of the loss with respect to weights using the chain rule.
+Example: In Satellite Image Analysis, ResNet50 pretrained on ImageNet was fine-tuned for 10 land-use classes.
+Common mistakes: learning rate too high, forgetting to normalize inputs, training too long without early stopping.
+Remember: use cross-entropy for classification, MSE for regression. Softmax outputs sum to 1.
+Understanding level: 6/10. Learn next: PyTorch training loops, RNN and LSTM details, then attention.
+
+TOPIC 6: NATURAL LANGUAGE PROCESSING
+
+Important concepts: tokenization, stop words, stemming, lemmatization, bag of words, TF-IDF, word embeddings, sequence models.
+Formula: TF-IDF = term frequency * log(total documents / documents containing the term).
+Example: TF-IDF was used as the baseline in the AI Code Error Detection project.
+Common mistakes: removing stop words when they matter, using different preprocessing for training and inference.
+Remember: modern NLP uses subword tokenization and contextual embeddings rather than counts.
+Understanding level: 6/10. Learn next: the NLP course in Semester 5, then evaluation with BLEU and ROUGE.
+
+TOPIC 7: GENERATIVE AI
+
+Important concepts: models that generate text, images, or code; pre-training, fine-tuning, prompting, hallucination, temperature.
+Definition: Generative AI creates new content by learning the probability distribution of training data.
+Example: An LLM predicts the next token repeatedly to write a paragraph.
+Common mistakes: trusting outputs without verification, vague prompts, ignoring context length limits.
+Remember: hallucination is the reason RAG matters. Lower temperature gives more predictable output.
+Understanding level: 5.5/10. Learn next: fine-tuning methods such as LoRA, and evaluation of generated text.
+
+TOPIC 8: TRANSFORMERS
+
+Important concepts: self-attention, multi-head attention, positional encoding, encoder, decoder, feed-forward layers, residual connections.
+Formula: Attention(Q, K, V) = softmax(Q * K transposed / sqrt(d_k)) * V
+Example: In the sentence "The animal did not cross because it was tired", attention helps link "it" to "animal".
+Common mistakes: forgetting that attention cost grows with the square of sequence length, mixing up encoder-only (BERT) and decoder-only (GPT) models.
+Remember: BERT understands text, GPT generates text, T5 is encoder-decoder.
+Understanding level: 5.5/10. Learn next: implement a small transformer in PyTorch.
+
+TOPIC 9: LLMs
+
+Important concepts: tokens, context window, temperature, top-p, system prompts, few-shot prompting, fine-tuning, hallucination.
+Definition: A large language model is a transformer trained on huge text data to predict the next token.
+Example: Ollama runs a local Llama model that is used in the RAG assistant for testing.
+Common mistakes: putting too much irrelevant context in the prompt, not telling the model to say "I don't know" when context is missing.
+Remember: an LLM has no memory of my documents unless I put them in the prompt. That is the job of retrieval.
+Understanding level: 6/10. Learn next: prompt evaluation and structured outputs.
+
+TOPIC 10: EMBEDDINGS
+
+Important concepts: dense vectors that capture meaning, similar meanings have nearby vectors, dimension size, normalization.
+Formula: Cosine similarity = (A dot B) / (|A| * |B|)
+Example: "car" and "automobile" get similar vectors. I use all-MiniLM-L6-v2, which gives 384 dimensions.
+Common mistakes: mixing embedding models between indexing and querying, embedding chunks that are too long, ignoring text cleaning.
+Remember: use the same model for documents and queries.
+Understanding level: 6/10. Learn next: compare embedding models on my own test questions.
+
+TOPIC 11: VECTOR DATABASES
+
+Important concepts: storing vectors with metadata, nearest neighbour search, approximate search (HNSW, IVF), collections, persistence.
+Definition: A vector database stores embeddings and quickly finds the ones closest to a query vector.
+Example: ChromaDB stores chunk text, embedding, and metadata such as the file name.
+Common mistakes: not storing metadata, re-embedding everything on each run, wrong distance metric.
+Remember: FAISS is a library, ChromaDB is a database with persistence and metadata filtering.
+Understanding level: 5/10. Learn next: metadata filtering and hybrid search.
+
+TOPIC 12: RAG
+
+Important concepts: load, extract, chunk, embed, store, retrieve, generate.
+Definition: Retrieval-Augmented Generation gives an LLM relevant retrieved text so it answers from real documents.
+Example: Question "What is my current project?" retrieves chunks from projects.txt and goals_and_tasks.txt, and the LLM answers using them.
+Chunking notes: about 800 characters with 150 overlap is my starting point. Too small loses context, too large adds noise.
+Common mistakes: bad chunk boundaries, retrieving too few chunks, not citing sources, not testing retrieval separately from generation.
+Remember: if retrieval fails, the LLM cannot fix it. Evaluate retrieval first.
+Understanding level: 5/10. Learn next: re-ranking, hybrid search, and retrieval metrics like recall at k.
+
+TOPIC 13: AI AGENTS
+
+Important concepts: an agent perceives input, plans, uses tools, and produces actions or answers; memory; tool calling; loops.
+Definition: An AI agent is an LLM-based system that decides what steps to take to reach a goal.
+Example: My Retrieval Agent decides which queries to run against the vector store.
+Common mistakes: giving agents too many tools, no stopping condition, unclear responsibilities.
+Remember: keep each agent's job narrow.
+Understanding level: 4/10. Learn next: tool calling, planning patterns, and frameworks.
+
+TOPIC 14: MULTI-AGENT SYSTEMS
+
+Important concepts: several agents with different roles cooperate, message passing, orchestration, shared state.
+Definition: A multi-agent system splits a task among specialized agents coordinated by rules or an orchestrator.
+Example: In my project, the Query Agent refines the question, the Retrieval Agent fetches chunks, and the Document Analysis Agent combines them into an answer.
+Common mistakes: agents repeating each other's work, passing too much text between agents, hard-to-debug flows.
+Remember: log every message between agents.
+Understanding level: 4/10. Learn next: orchestration patterns and evaluating the full pipeline after integration in November 2026.

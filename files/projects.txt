@@ -1,0 +1,109 @@
+PROJECT PORTFOLIO - ADITYA VARMA
+
+B.Tech AI and ML, Coastal Andhra Institute of Technology (CAIT), Year 3, Semester 5
+Document last updated: September 28, 2026
+
+This document describes five projects by Aditya Varma. Four are completed or mostly completed. The fifth, the Personal Document RAG Assistant, is his CURRENT main project.
+
+PROJECT 1: SATELLITE IMAGE ANALYSIS
+
+Problem statement: Manually labelling land use from satellite imagery is slow. Planners need automatic classification of land types such as farmland, forest, water, and urban areas.
+
+Objective: Build a deep learning model that classifies satellite image patches into land-use categories.
+
+Technologies: TensorFlow, Keras, OpenCV, NumPy, Matplotlib, Google Colab
+Programming language: Python
+Dataset: EuroSAT (RGB version), about 27,000 labelled images of 64 by 64 pixels across 10 classes
+Methodology: Images were resized, normalized, and augmented (flip, rotation, zoom). A baseline CNN was trained first. Then transfer learning with ResNet50 pretrained on ImageNet was used, with the top layers replaced and later layers fine-tuned.
+Algorithms and models: Custom CNN, ResNet50 transfer learning
+Main features: Multi-class classification, confusion matrix analysis, Grad-CAM heatmaps showing which image areas influenced predictions
+Results: Baseline CNN reached about 88 percent accuracy. ResNet50 fine-tuned reached about 94.1 percent test accuracy. Most errors were between Highway and River, and between Pasture and Permanent Crop.
+Challenges: Similar-looking classes, limited GPU time on Colab, overfitting in early experiments
+Current status: Completed (presented at the April 2026 department expo)
+Future improvements: Try EfficientNet, use multispectral bands, add change detection between two dates
+
+PROJECT 2: AI CODE ERROR DETECTION
+
+Problem statement: Beginners lose hours to programming errors. Compiler messages are often cryptic, and finding the cause and fix takes time.
+
+Objective: Build a system that detects programming errors in code, explains them in simple language, identifies the likely cause, and suggests a fix.
+
+Technologies: Hugging Face Transformers, scikit-learn, Python AST module, Streamlit, Git
+Programming languages: Python (main), Java (secondary support)
+Dataset: About 12,000 buggy and fixed code snippet pairs, combined from public bug-fix datasets and around 1,500 snippets Aditya collected from student lab programs. Error types include syntax errors, name errors, type errors, index errors, logic errors, and missing return statements.
+Methodology: Code was tokenized. A rule-based layer using Python AST and error messages catches syntax and runtime errors. A fine-tuned CodeBERT classifier predicts the error category. A CodeT5-based model was tested for generating fix suggestions. An explanation template converts error category, line number, and probable cause into a readable message.
+Algorithms and models: CodeBERT (classification), CodeT5-small (fix generation), rule-based AST checks, TF-IDF with Logistic Regression as a baseline
+Main features: Error detection, plain-language explanation, likely cause identification, suggested fix, and a Streamlit interface where users paste code
+Results: The baseline reached about 71 percent accuracy on error type classification. CodeBERT reached about 87 percent. About 62 percent of suggested fixes were judged correct on a manual sample of 100 snippets.
+Challenges: Logic errors are hard to detect without running code, fix generation sometimes changed working code, dataset imbalance
+Current status: Working prototype, paused while the RAG project is active
+Future improvements: Run code in a sandbox to capture real traces, expand Java support, use an LLM for better explanations, and collect user feedback
+
+PROJECT 3: IPL PREDICTION SYSTEM
+
+Problem statement: Cricket fans and analysts want data-driven predictions of match outcomes.
+
+Objective: Predict the winner of an IPL match using historical data, team form, and match conditions.
+
+Technologies: Pandas, NumPy, scikit-learn, XGBoost, Seaborn, Flask
+Programming language: Python
+Dataset: Kaggle IPL dataset from 2008 to 2023, about 1,095 matches and about 260,000 ball-by-ball deliveries
+Methodology: Data cleaning (renaming franchises, handling no-result matches), feature engineering (team win rate, head-to-head record, home advantage, toss winner and decision, venue, recent form of last 5 matches), one-hot encoding, chronological train-test split to avoid leakage.
+Algorithms and models: Logistic Regression, Random Forest, XGBoost
+Main features: Winner prediction with probability, feature importance charts, simple Flask web form
+Results: Logistic Regression about 64 percent, Random Forest about 70 percent, XGBoost about 72 percent accuracy on the test seasons
+Challenges: Small dataset, high randomness in cricket, team changes each season, data leakage risk
+Current status: Completed
+Future improvements: Add player-level features, live match data, and calibrated probabilities
+
+PROJECT 4: SMART FARMING SYSTEM
+
+Problem statement: Small farmers often choose crops and treatments without scientific guidance.
+
+Objective: Recommend suitable crops from soil and weather data, and detect common plant diseases from leaf photos.
+
+Technologies: scikit-learn, TensorFlow, Keras, Flask, SQLite, Arduino soil moisture sensor (prototype)
+Programming languages: Python, C (Arduino sketch)
+Datasets: Crop Recommendation dataset with 2,200 records, 22 crops, and 7 features (N, P, K, temperature, humidity, pH, rainfall); a PlantVillage subset of about 5,000 leaf images across 8 disease classes
+Methodology: Random Forest for crop recommendation. MobileNetV2 transfer learning for disease detection. Flask backend connects both models to a simple web page. The sensor sends moisture readings over serial.
+Algorithms and models: Random Forest, Decision Tree, MobileNetV2
+Main features: Crop recommendation, disease detection with confidence score, sensor reading display, and basic treatment advice text
+Results: Crop recommendation accuracy about 99 percent (the dataset is clean and easy). Disease detection accuracy about 91 percent on validation images.
+Challenges: Lab images from PlantVillage differ from real field photos, so real-world accuracy is lower. Sensor calibration was difficult.
+Current status: Prototype completed; won second place at InnoHack 2025. Cloud deployment is blocked because the improved sensor kit has not arrived.
+Future improvements: Field-collected images, regional language support, weather API integration, cloud deployment
+
+PROJECT 5: PERSONAL DOCUMENT RAG ASSISTANT (CURRENT PROJECT)
+
+Problem statement: Personal documents such as notes, plans, and project descriptions are spread across many files. Finding specific answers means searching manually, and general LLMs know nothing about private documents.
+
+Objective: Build a personal document assistant that answers questions using only the user's own documents, using a Retrieval-Augmented Generation pipeline and three cooperating agents.
+
+Technologies: Python, Sentence-Transformers (all-MiniLM-L6-v2, 384-dimensional embeddings), ChromaDB (FAISS as an alternative), LangChain utilities, Ollama with a local Llama model plus a hosted LLM API for comparison, Streamlit
+Programming language: Python
+Dataset: A personal knowledge base of 6 plain text files (personal profile, projects, study notes, career roadmap, goals and tasks, AI/ML reference), about 7,000 to 8,000 words in total, expected to produce roughly 60 to 100 chunks
+Methodology:
+1. Document loading from a folder of text files (done)
+2. Text extraction and cleaning (done)
+3. Chunking with about 800 characters per chunk and 150 characters of overlap (in progress; 500 and 1,000 characters are being compared)
+4. Embedding generation with Sentence-Transformers
+5. Vector storage in ChromaDB with metadata such as file name and section
+6. Similarity search using cosine similarity, retrieving the top 4 to 5 chunks
+7. LLM-based answer generation using retrieved chunks as context
+
+Agents:
+- Query Agent: reads the user question, cleans and rewrites it, decides what kind of question it is, and produces search queries
+- Retrieval Agent: searches the vector store, retrieves relevant chunks from multiple documents, and removes duplicates
+- Document Analysis Agent: combines and reasons over retrieved chunks, resolves overlap between documents, and writes the final grounded answer with source file names
+
+Main features: Multi-document question answering, source citations, and multi-step reasoning across files
+Expected results: Correct answers to at least 80 percent of a 30-question test set, with the right source document cited in at least 90 percent of answers
+Challenges: Choosing chunk size, preserving section context, questions that need information from several files, avoiding hallucination when context is missing, limited Colab GPU quota for embedding model comparison
+Current status: In progress. Loading and extraction are done. Chunking is being finalized (due October 2, 2026). Embeddings, vector retrieval, and the three agents are not started yet. Target completion is November 30, 2026.
+Future improvements: PDF and DOCX support, hybrid keyword and vector search, re-ranking, conversation memory, evaluation with retrieval metrics such as recall at k
+
+RELATIONSHIPS BETWEEN PROJECTS
+
+- The RAG assistant reuses lessons from AI Code Error Detection (Hugging Face models and Streamlit) and from IPL Prediction (careful evaluation and avoiding data leakage).
+- Satellite Image Analysis and Smart Farming both use CNN transfer learning. Aditya learned MobileNetV2 in Smart Farming and ResNet50 in Satellite Image Analysis.
+- These five projects support his goal of becoming an AI/ML engineer and will appear on his resume, with the RAG assistant as the highlight.

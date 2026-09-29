@@ -1,0 +1,176 @@
+CAREER ROADMAP - ADITYA VARMA
+
+B.Tech AI and ML, Coastal Andhra Institute of Technology (CAIT), Year 3, Semester 5
+Batch 2024-2028. Document last updated: September 28, 2026
+
+SECTION 1: CURRENT SKILL LEVEL (SELF-RATED OUT OF 10)
+
+- Python 8, Java 6, C 6, SQL 6.5, DSA 6
+- Machine Learning 7, Deep Learning 6, Generative AI 5.5, RAG 5, AI agents 4
+- Git and GitHub: good (daily use, about 14 repositories)
+- Current CGPA: 8.4
+
+SECTION 2: TARGET JOB ROLES
+
+- Primary: AI/ML Engineer
+- Also: Machine Learning Engineer, Generative AI Engineer
+- Backup: Software Engineer with an AI focus
+
+Long-term career goal: become an AI/ML engineer at a product company after graduating in 2028, building production-grade RAG and AI agent systems, and later grow into a senior AI engineer.
+
+SECTION 3: SKILLS REQUIRED FOR AN AI/ML ENGINEER ROLE
+
+- Strong Python and clean coding practice
+- DSA for coding interviews (arrays, strings, hash maps, trees, graphs, dynamic programming)
+- SQL and database fundamentals
+- Math for ML: linear algebra, probability, statistics
+- Machine Learning with scikit-learn and model evaluation
+- Deep Learning with TensorFlow and PyTorch
+- NLP, transformers, and LLM usage
+- Generative AI, RAG, and AI agents
+- Git and GitHub, testing, and documentation
+- Deployment basics: APIs, Docker, cloud basics
+- Communication and project explanation skills
+
+SECTION 4: SKILL DEPENDENCIES
+
+Main learning chain:
+Python, then NumPy and Pandas, then Machine Learning, then Deep Learning, then Generative AI, then RAG, then AI Agents.
+
+Details of the dependencies:
+- NumPy and Pandas require Python basics.
+- Machine Learning requires Python, NumPy, Pandas, and basic math (probability, linear algebra).
+- Deep Learning requires Machine Learning basics, gradient descent, and calculus intuition.
+- Generative AI requires Deep Learning, NLP basics, and transformers.
+- RAG requires Generative AI and LLM basics, embeddings, and vector databases.
+- AI Agents require LLM usage, prompt engineering, and RAG (retrieval is often an agent tool).
+- Multi-agent systems require single-agent basics.
+
+Side chains:
+- DSA requires Python, Java, or C fluency and supports interviews at all stages.
+- SQL requires nothing and supports data work and backend skills.
+- Deployment requires Python web frameworks (Flask, FastAPI) and Git.
+
+What should I learn before AI agents? LLM basics, prompt engineering, embeddings, vector search, and RAG. I am covering these by building the Personal Document RAG Assistant first.
+
+What should I learn after Python? NumPy and Pandas, then Machine Learning with scikit-learn. (Aditya has already completed these steps and is now beyond that point.)
+
+SECTION 5: SKILL ROADMAPS
+
+Python roadmap:
+- Done: syntax, OOP, file handling, libraries
+- Now: writing tests with pytest, project structure, type hints
+- Next: FastAPI basics, async programming (early 2027)
+
+DSA roadmap:
+- Done: arrays, strings, linked lists, stacks, queues, hash maps, basic trees
+- Now: binary trees in depth, heaps, graphs (BFS, DFS)
+- Next: dynamic programming, tries, advanced graphs
+- Target: 400 LeetCode problems by December 31, 2026 and 600 by May 2027
+
+SQL and database roadmap:
+- Done: joins, GROUP BY, subqueries
+- Now: window functions and CTEs (October to November 2026)
+- Next: indexing, normalization, and using SQLite or PostgreSQL in a project; DBMS course in Semester 5 supports this
+
+Machine Learning roadmap:
+- Done: regression, classification, ensembles, evaluation
+- Next: hyperparameter tuning, feature engineering, ML pipelines, model deployment basics
+
+Deep Learning roadmap:
+- Done: CNNs and transfer learning in TensorFlow
+- Now: PyTorch training loops (parallel with the Deep Learning course)
+- Next: RNN and LSTM, then implementing a small transformer
+
+Generative AI roadmap:
+- Done: prompting, Hugging Face basics, hosted LLM APIs
+- Now: LLM behavior, embeddings, local models with Ollama
+- Next: fine-tuning with LoRA, evaluating LLM outputs (2027)
+
+RAG roadmap:
+- Done: understanding the pipeline, document loading, text extraction
+- Now: chunking, embeddings, vector retrieval
+- Next: hybrid search, re-ranking, and retrieval evaluation
+- Application: Personal Document RAG Assistant
+
+AI Agent roadmap:
+- Now: read about agent patterns while RAG is being built
+- Build: Query Agent, Retrieval Agent, Document Analysis Agent (October to November 2026)
+- Next: tool calling, memory, planning, and agent frameworks (LangChain, LangGraph) in 2027
+
+Git and GitHub roadmap:
+- Done: commits, branches, pull requests, README files
+- Next: GitHub Issues and Projects for task tracking, GitHub Actions basics, cleaner commit messages, and a polished GitHub profile README
+
+SECTION 6: PROJECT ROADMAP
+
+Existing projects: Satellite Image Analysis (done), AI Code Error Detection (prototype, paused), IPL Prediction System (done), Smart Farming System (prototype, deployment blocked).
+
+Current project: Personal Document RAG Assistant, target completion November 30, 2026.
+
+Projects to build next:
+- Improve AI Code Error Detection with sandbox execution and LLM explanations (December 2026 to January 2027)
+- A multi-agent capstone, for example a research assistant that uses several tools (2027)
+- A deployed API with Docker for one of the projects to show deployment skill (spring 2027)
+
+SECTION 7: INTERNSHIP PREPARATION
+
+- Target: AI/ML engineering internship in summer 2027 (May to July 2027, after Semester 6)
+- Applications open January 2027
+- Requirements: resume, GitHub with polished repositories, at least 400 LeetCode problems, two or three strong AI projects
+- Plan: apply to at least 30 companies, use referrals through the AI club and alumni network, and attend campus placement training in February 2027
+
+SECTION 8: RESUME PREPARATION
+
+- One page, focused on AI/ML
+- Sections: summary, education, skills, projects, certifications, achievements
+- Highlight the RAG assistant, AI Code Error Detection, and Smart Farming (InnoHack 2025 second place)
+- Use measurable results such as 94.1 percent accuracy in Satellite Image Analysis and 87 percent error classification accuracy
+- Deadline: first version ready by December 5, 2026. Have two seniors review it.
+
+SECTION 9: INTERVIEW PREPARATION
+
+- Coding: solve 3 to 4 problems per week; practice explaining approach aloud
+- ML theory: bias-variance, evaluation metrics, regularization, overfitting
+- GenAI and RAG: explain the full RAG pipeline and chunking trade-offs
+- Projects: prepare a 2-minute explanation for each project
+- Core CS: operating systems, DBMS, and OOP basics
+- Mock interviews: one per month starting January 2027
+
+SECTION 10: WEEKLY LEARNING PLAN (TERM TIME)
+
+- Monday: RAG project work (2 hours)
+- Tuesday: DSA (1 hour) and SQL (1 hour)
+- Wednesday: RAG project work (2 hours)
+- Thursday: DSA (1 hour) and PyTorch or Deep Learning course revision (1 hour)
+- Friday: reading on agents and LLMs, plus notes update (1.5 hours)
+- Saturday: main project block (3 hours) and 2 LeetCode problems
+- Sunday: review of the week, plan for next week, rest
+
+SECTION 11: THIS MONTH'S FOCUS (OCTOBER 2026)
+
+1. Finish document chunking (due October 2)
+2. Prepare for mid-semester exams (October 5 to 9)
+3. Generate embeddings (due October 14)
+4. Implement vector retrieval (due October 21)
+5. Build the Retrieval Agent (due October 28)
+6. Solve at least 40 LeetCode problems and start SQL window functions
+
+SECTION 12: MILESTONES
+
+Short-term (to December 2026):
+- Complete the RAG assistant by November 30
+- 400 LeetCode problems by December 31
+- Resume ready by December 5
+- SGPA of at least 8.7 in Semester 5
+
+Medium-term (January to December 2027):
+- Get a summer 2027 AI/ML internship
+- Learn fine-tuning, LangGraph, and deployment basics
+- Reach 600 LeetCode problems
+- Publish two or more polished projects on GitHub
+
+Long-term (2028 and beyond):
+- Graduate with a CGPA of at least 8.6 in May 2028
+- Join a product company as an AI/ML engineer
+- Build production RAG and agent systems and become a senior AI engineer

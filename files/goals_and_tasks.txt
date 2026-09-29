@@ -1,0 +1,160 @@
+GOALS AND TASKS - ADITYA VARMA
+
+B.Tech AI and ML, Coastal Andhra Institute of Technology (CAIT), Year 3, Semester 5
+Document last updated: September 28, 2026
+
+Status values used: Not Started, In Progress, Completed, Blocked
+Priority values used: High, Medium, Low
+
+SECTION 1: CURRENT PROJECT
+
+Current main project: Personal Document RAG Assistant (target completion November 30, 2026). Other projects (Satellite Image Analysis, IPL Prediction System) are completed. AI Code Error Detection is a paused prototype. Smart Farming System is a prototype with deployment blocked.
+
+SECTION 2: GOALS BY AREA
+
+Academic goals:
+- Score an SGPA of at least 8.7 in Semester 5 (mid-semester exams October 5 to 9, 2026; end-semester exams December 8 to 19, 2026)
+- Complete the DBMS assignment by October 5, 2026
+GPA goals:
+- Current CGPA is 8.4. Target CGPA of at least 8.6 at graduation in May 2028
+Programming goals:
+- Write pytest tests for the RAG project by November 25, 2026
+- Become comfortable with PyTorch training loops by December 2026
+DSA goals:
+- Reach 400 LeetCode problems by December 31, 2026 (currently about 210)
+- Learn graphs (BFS, DFS) by October 31 and dynamic programming by December 15
+Machine Learning goals:
+- Learn hyperparameter tuning and ML pipelines by January 2027
+Generative AI goals:
+- Compare a local Llama model (Ollama) with a hosted LLM API for answer quality by November 20, 2026
+RAG goals:
+- Finish the Personal Document RAG Assistant by November 30, 2026
+- Reach at least 80 percent correct answers on a 30-question test set
+AI agent goals:
+- Build the Query Agent, Retrieval Agent, and Document Analysis Agent and integrate them by November 18, 2026
+Project goals:
+- Publish the RAG assistant on GitHub with a full README and demo by November 30, 2026
+- Resume improved project descriptions for all five projects
+Internship goals:
+- Resume ready by December 5, 2026
+- Apply for summer 2027 AI/ML internships when applications open in January 2027 (at least 30 applications)
+Career goals:
+- Become an AI/ML engineer at a product company after graduating in 2028
+
+SECTION 3: RAG PROJECT TASKS
+
+Task T01: Define project scope and architecture. Status: Completed (August 25, 2026). Priority: High.
+Task T02: Implement document loading. Status: Completed (September 10, 2026). Priority: High. Depends on: T01.
+Task T03: Implement text extraction and cleaning. Status: Completed (September 14, 2026). Priority: High. Depends on: T02.
+Task T04: Complete document chunking. Status: In Progress. Deadline: October 2, 2026. Priority: High. Depends on: T03. Notes: Comparing 500, 800, and 1,000 characters with 150 overlap.
+Task T05: Generate embeddings. Status: Not Started. Deadline: October 14, 2026. Priority: High. Depends on: T04.
+Task T06: Set up ChromaDB vector storage with metadata. Status: Not Started. Deadline: October 16, 2026. Priority: High. Depends on: T05.
+Task T07: Implement vector retrieval. Status: Not Started. Deadline: October 21, 2026. Priority: High. Depends on: T05, T06.
+Task T08: Build Retrieval Agent. Status: Not Started. Deadline: October 28, 2026. Priority: High. Depends on: T07.
+Task T09: Build Query Agent. Status: Not Started. Deadline: November 4, 2026. Priority: Medium. Depends on: T01 (can be started in parallel with T05).
+Task T10: Build Document Analysis Agent. Status: Not Started. Deadline: November 11, 2026. Priority: High. Depends on: T08.
+Task T11: Integrate the multi-agent system. Status: Not Started. Deadline: November 18, 2026. Priority: High. Depends on: T08, T09, T10.
+Task T12: Create a 30-question test set for evaluation. Status: Blocked. Deadline: October 20, 2026. Priority: Medium. Blocked by: chunking not finalized (T04). Once T04 is complete, this task can start.
+Task T13: Compare embedding models on the test set. Status: Blocked. Deadline: November 8, 2026. Priority: Low. Blocked by: T05 not done and Google Colab GPU quota exhausted until next month. Depends on: T05, T12.
+Task T14: Build the Streamlit interface. Status: Not Started. Deadline: November 25, 2026. Priority: Medium. Depends on: T11.
+Task T15: Write README, record demo, and publish on GitHub. Status: Not Started. Deadline: November 30, 2026. Priority: High. Depends on: T11, T14.
+
+Dependency chain in short:
+Complete document chunking (T04) must happen before Generate embeddings (T05). Generate embeddings must happen before Implement vector retrieval (T07). Implement vector retrieval must happen before Build Retrieval Agent (T08). Build Retrieval Agent must happen before Integrate the multi-agent system (T11), along with the Query Agent (T09) and Document Analysis Agent (T10).
+
+Tasks that must be completed before the Retrieval Agent (T08): T01, T02, T03, T04, T05, T06, and T07. Of these, T01, T02, and T03 are already completed. T04 is in progress, and T05, T06, T07 are not started.
+
+SECTION 4: OTHER TASKS
+
+Task T16: Solve 40 LeetCode problems in October 2026 (graphs and trees). Status: In Progress. Deadline: October 31, 2026. Priority: Medium.
+Task T17: Learn SQL window functions and CTEs. Status: Not Started. Deadline: November 15, 2026. Priority: Medium.
+Task T18: Complete the DBMS assignment. Status: In Progress. Deadline: October 5, 2026. Priority: High.
+Task T19: Prepare for mid-semester exams (Deep Learning, NLP, DBMS, OS, DAA). Status: In Progress. Deadline: October 5 to 9, 2026. Priority: High.
+Task T20: Write the first version of the resume. Status: Not Started. Deadline: December 5, 2026. Priority: High. Depends on: T15 (to include final RAG project details), though a draft can start earlier.
+Task T21: Prepare for end-semester exams. Status: Not Started. Deadline: December 8, 2026. Priority: High.
+Task T22: Deploy Smart Farming dashboard to the cloud. Status: Blocked. Priority: Low. Blocked by: the improved soil moisture sensor kit is delayed.
+Task T23: Improve AI Code Error Detection with sandbox execution. Status: Not Started. Target start: December 2026. Priority: Low. Depends on: T15.
+Task T24: Learn PyTorch training loops. Status: Not Started. Deadline: December 20, 2026. Priority: Medium.
+
+SECTION 5: COMPLETED TASKS
+
+- Complete the Coursera Machine Learning Specialization (January 2026)
+- Finish Semester 4 exams with an SGPA of 8.5 (May 2026)
+- Present Satellite Image Analysis at the department expo (April 2026)
+- Complete the DeepLearning.AI course "LangChain: Chat with Your Data" (August 2026)
+- T01, T02, T03 of the RAG project (August 25 to September 14, 2026)
+
+SECTION 6: BLOCKED TASKS SUMMARY
+
+- T12 Create a test set: blocked until chunking (T04) is finalized
+- T13 Compare embedding models: blocked by T05 and Colab GPU quota
+- T22 Deploy Smart Farming dashboard: blocked by delayed sensor kit
+
+SECTION 7: UNFINISHED TASKS (SEPTEMBER 28, 2026)
+
+In Progress: T04 chunking, T16 LeetCode practice, T18 DBMS assignment, T19 mid-semester exam preparation.
+Not Started: T05, T06, T07, T08, T09, T10, T11, T14, T15, T17, T20, T21, T23, T24.
+Blocked: T12, T13, T22.
+
+SECTION 8: PRIORITIES AND WHAT TO WORK ON NEXT
+
+Order of importance this week:
+1. Finish T04 (document chunking), deadline October 2. It unblocks T05, T12, and T13.
+2. Finish the DBMS assignment (T18), deadline October 5.
+3. Study for mid-semester exams (T19), October 5 to 9.
+4. After exams, start T05 (Generate embeddings), deadline October 14.
+
+Next after chunking: Generate embeddings, then ChromaDB storage, then vector retrieval, then the Retrieval Agent.
+
+SECTION 9: WEEKLY OBJECTIVES
+
+Week of September 28 to October 4:
+- Finalize chunk size and overlap and complete chunking (T04)
+- Complete the DBMS assignment (T18)
+- Solve 8 LeetCode problems
+
+Week of October 5 to 11:
+- Take mid-semester exams (T19)
+- Light work only: 3 LeetCode problems and reading about embeddings
+
+Week of October 12 to 18:
+- Generate embeddings (T05) and set up ChromaDB (T06)
+- Start the test question set (T12) once T04 is done
+
+SECTION 10: MONTHLY OBJECTIVES
+
+October 2026:
+- Finish T04, T05, T06, T07, and T08 (Retrieval Agent by October 28)
+- Solve 40 LeetCode problems
+- Score well in mid-semester exams
+
+November 2026:
+- Build the Query Agent and Document Analysis Agent (T09, T10)
+- Integrate the system (T11, November 18)
+- Streamlit interface (T14) and README and GitHub publishing (T15, November 30)
+- Learn SQL window functions
+
+December 2026:
+- Resume ready by December 5
+- End-semester exams December 8 to 19
+- Reach 400 LeetCode problems by December 31
+- Learn PyTorch training loops
+
+SECTION 11: DEADLINE LIST (CHRONOLOGICAL)
+
+- October 2, 2026: Document chunking (T04)
+- October 5, 2026: DBMS assignment (T18)
+- October 5 to 9, 2026: Mid-semester exams
+- October 14, 2026: Generate embeddings (T05)
+- October 16, 2026: ChromaDB storage (T06)
+- October 21, 2026: Vector retrieval (T07)
+- October 28, 2026: Retrieval Agent (T08)
+- November 4, 2026: Query Agent (T09)
+- November 11, 2026: Document Analysis Agent (T10)
+- November 18, 2026: Multi-agent integration (T11)
+- November 25, 2026: Streamlit interface (T14)
+- November 30, 2026: README, demo, GitHub (T15)
+- December 5, 2026: Resume ready (T20)
+- December 8 to 19, 2026: End-semester exams
+- December 31, 2026: 400 LeetCode problems
+- January 2027: Internship applications open
